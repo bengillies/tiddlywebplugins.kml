@@ -23,6 +23,6 @@ setup(
     packages = find_packages(exclude='test'),
     author_email = AUTHOR_EMAIL,
     platforms = 'Posix; MacOS X; Windows',
-    install_requires = ['setuptools', 'tiddlyweb>=1.2.0'],
+    install_requires = ['setuptools', 'tiddlyweb>=1.2.0', 'pykml>=0.0.3'],
     zip_safe = False
     )
