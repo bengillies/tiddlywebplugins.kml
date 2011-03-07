@@ -27,7 +27,9 @@ class Serialization(SerializationInterface):
         kml = KML.kml(KML.Document())
         for tiddler in tiddlers:
             tiddler_kml = self.tiddler_to_kml(tiddler)
-            kml.Document.append(tiddler_kml.Placemark)
+            kml_inner = getattr(tiddler_kml, 'Placemark', None)
+            if kml_inner:
+                kml.Document.append(kml_inner)
 
         return self.kml_to_string(kml)
 
