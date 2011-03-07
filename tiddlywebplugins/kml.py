@@ -24,18 +24,12 @@ class Serialization(SerializationInterface):
         """
         serialize a list of tiddlers into kml format
         """
-        kml = KML.kml()
+        kml = KML.kml(KML.Document())
         for tiddler in tiddlers:
             tiddler_kml = self.tiddler_to_kml(tiddler)
-            kml.append(tiddler_kml)
+            kml.Document.append(tiddler_kml.Placemark)
 
         return self.kml_to_string(kml)
-
-    def as_tiddler(self, tiddler, input_string):
-        """
-        serialize a kml file into a tiddler
-        """
-        pass
 
     def tiddler_to_kml(self, tiddler):
         """
@@ -47,6 +41,7 @@ class Serialization(SerializationInterface):
             kml = KML.kml(
                 KML.Placemark(
                     KML.name(tiddler.title),
+                    KML.description(tiddler.fields.get('description', '')),
                     KML.Point(
                         KML.coordinates('%s,%s' % (geo_long, geo_lat))
                     )
