@@ -36,7 +36,7 @@ def setup_store():
     for bag in BAGS:
         bag = Bag(bag)
         store.put(bag)
-    
+
     for recipe in store.list_recipes():
         store.delete(recipe)
 
@@ -44,9 +44,9 @@ def setup_store():
         recipe = Recipe(recipe)
         recipe.set_recipe(contents)
         store.put(recipe)
-        
+
     return store
-    
+
 def setup_web():
     """
     set up TiddlyWeb to run as a mock server
@@ -54,6 +54,6 @@ def setup_web():
     """
     def app_fn():
         return serve.load_app()
-        
+
     httplib2_intercept.install()
     wsgi_intercept.add_wsgi_intercept('test_domain', 8001, app_fn)
