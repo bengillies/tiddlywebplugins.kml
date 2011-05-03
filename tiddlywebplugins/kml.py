@@ -4,7 +4,7 @@ A serializer for kml files
 from tiddlyweb.serializations import SerializationInterface
 
 from pykml.factory import KML_ElementMaker as KML
-from pykml.factory import ATOM_ElementMaker as ATOM
+
 from lxml import etree
 
 class Serialization(SerializationInterface):
