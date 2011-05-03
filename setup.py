@@ -3,7 +3,7 @@ AUTHOR = 'Ben Gillies'
 AUTHOR_EMAIL = 'bengillies@gmail.com'
 NAME = 'tiddlywebplugins.kml'
 DESCRIPTION = 'Adds support for KML files'
-VERSION = '0.2.1'
+VERSION = '0.2.2'
 
 
 import os
